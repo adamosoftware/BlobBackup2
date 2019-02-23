@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="RestSharp" Version="106.6.8" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BlobBackup.Models\BlobBackup.Models.csproj" />
   </ItemGroup>
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BlobBackup.Server
 {
-	public abstract class BackupServer
+	public abstract class BackupSource
 	{
 		public abstract CloudStorageAccount GetAccount();
 
@@ -43,6 +43,7 @@ namespace BlobBackup.Server
 				token = response.ContinuationToken;
 				results.AddRange(response.Results.OfType<CloudBlockBlob>().Select(b => new BlobInfo()
 				{
+					ContainerName = containerName,
 					Uri = b.Uri,
 					LastModified = b.Properties.LastModified,
 					Length = b.Properties.Length
